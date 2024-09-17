@@ -25,11 +25,17 @@
         <div class="mb-3">
           <label for="emel" class="form-label">Emel</label>
           <input type="text" class="form-control" name="emel" id="emel" />
+
+          <p id="emel_error" class="text-danger"></p>
+
         </div>
 
         <div class="mb-3">
           <label for="umur" class="form-label">Umur</label>
           <input type="text" class="form-control" name="umur" id="umur" />
+
+          <p id="umur_error" class="text-danger"></p>
+
         </div>
 
         <div class="mb-3">
@@ -42,6 +48,9 @@
             name="username"
             id="username"
           />
+
+          <p id="username_error" class="text-danger"></p>
+
         </div>
 
         <button type="submit" class="btn btn-primary btn-lg">Hantar</button>
@@ -85,6 +94,40 @@
           }
 
           // 2. validate emel
+
+          var emel = $("#emel").val();
+
+          // reset field error
+          $("#emel_error").text("");
+
+          if (emel == "") {
+            $("#emel_error").text("Emel wajib di isi!");
+            is_valid = false;
+          }
+
+          // 3. validate umur
+
+          var umur = $("#umur").val();
+
+          // reset field error
+          $("#umur_error").text("");
+
+          if (umur == "") {
+            $("#umur_error").text("Umur wajib di isi!");
+            is_valid = false;
+          }
+
+          // 4. validate username
+
+          var username = $("#username").val();
+
+          // reset field error
+          $("#username_error").text("");
+
+          if (username == "") {
+            $("#username_error").text("username wajib di isi!");
+            is_valid = false;
+          }
 
           if (!is_valid) {
             return false;
