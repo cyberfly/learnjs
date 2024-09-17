@@ -30,7 +30,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="umur" class="form-label">Umur</label>
+          <label for="umur" class="form-label">Umur (min 18)</label>
           <input type="text" class="form-control" name="umur" id="umur" />
 
           <p id="umur_error" class="text-danger"></p>
@@ -123,6 +123,13 @@
           } else {
             if (!isNumeric(umur)) {
               $("#umur_error").text("Umur hanya nombor sahaja!");
+              is_valid = false;
+            }
+
+            const min_umur = 18;
+
+            if (parseInt(umur) < parseInt(min_umur)) {
+              $("#umur_error").text("Umur minima " + min_umur);
               is_valid = false;
             }
           }
