@@ -13,3 +13,14 @@ function isNumeric(value) {
 function isAlphanumeric(value) {
   return /^[a-z0-9]+$/i.test(value);
 }
+
+function validateGovEmail(email) {
+  // Regular expression to match emails with:
+  // 1. One subdomain before .gov.my
+  // 2. One dynamic subdomain before .intan.my
+  // 3. One dynamic subdomain before .edu.my
+  const pattern =
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.(gov\.my|intan\.my|edu\.my)$/;
+
+  return pattern.test(email);
+}
