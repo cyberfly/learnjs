@@ -16,8 +16,10 @@
 
       <form id="myform" action="https://learnjs.test" method="POST">
         <div class="mb-3">
-          <label for="name" class="form-label">Nama</label>
+          <label for="nama" class="form-label">Nama</label>
           <input type="text" class="form-control" name="nama" id="nama" />
+
+          <p id="nama_error" class="text-danger"></p>
         </div>
 
         <div class="mb-3">
@@ -68,7 +70,27 @@
         });
 
         function validateForm() {
-          return false;
+          var is_valid = true;
+
+          // 1. validate nama
+
+          var nama = $("#nama").val();
+
+          // reset field error
+          $("#nama_error").text("");
+
+          if (nama == "") {
+            $("#nama_error").text("Nama wajib di isi!");
+            is_valid = false;
+          }
+
+          // 2. validate emel
+
+          if (!is_valid) {
+            return false;
+          }
+
+          return true;
         }
       });
     </script>
