@@ -62,11 +62,13 @@
 
           if (validateForm() === true) {
             this.submit();
+          } else {
+            console.error("validation error");
           }
         });
 
         function validateForm() {
-          return true;
+          return false;
         }
       });
     </script>
