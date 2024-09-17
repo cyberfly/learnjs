@@ -91,6 +91,11 @@
           if (nama == "") {
             $("#nama_error").text("Nama wajib di isi!");
             is_valid = false;
+          } else {
+            if (nama.length < 3) {
+              $("#nama_error").text("Minima 3 huruf");
+              is_valid = false;
+            }
           }
 
           // 2. validate emel
